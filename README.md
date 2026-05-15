@@ -1,146 +1,129 @@
 # Your Website Template
 
-A clean, modern single-page website for your business. Edit **one file** to change all text and brand colors; drop images in **one folder** to change all photos. Deploy free on Netlify.
+A clean, modern single-page website with a **visual editor at `/admin`** — log in, fill in forms, upload images, hit Save. No code. Site auto-updates in about a minute.
 
 ---
 
-## What's in here
+## How the recipient edits the site
 
-- **`src/data/content.json`** — all text, all image filenames, brand color. This is the file you'll edit.
-- **`public/images/`** — all photos. Drop yours in here with the filenames listed below.
-- Everything else is the website's source code. You don't need to touch it.
+After it's deployed (see "First-time setup" below), they go to:
 
----
-
-## How to edit text and content
-
-1. Open `src/data/content.json` in any text editor (or directly on GitHub.com — click the file, then the pencil icon).
-2. Find the field you want to change. Each section of the website has its own block.
-3. Change the text **between the quote marks**. Do **not** change the field names (the words to the left of the colon).
-4. Save the file (or "Commit changes" on GitHub).
-
-### Example
-
-```json
-"hero": {
-  "headline": "CONFIDENCE STARTS HERE",
-  "subhead": "Replace this with..."
-}
+```
+https://yoursite.netlify.app/admin
 ```
 
-Change to:
+They log in with their GitHub account, then they see a left sidebar with sections like **Hero**, **Services**, **Testimonials**, **Locations** — exactly like Webflow's CMS or Wix's editor. Click a section, fill in the form fields, drag-drop image uploads, click **Save** and **Publish**. The live site rebuilds itself in ~60 seconds.
 
-```json
-"hero": {
-  "headline": "BEAUTIFUL SMILES START HERE",
-  "subhead": "Family dentistry you can trust."
-}
-```
-
-### Hiding a section
-
-To hide the special offer banner, the gallery, the intro offers, the compare table, or the locations section: set its whole block to `null`.
-
-```json
-"offerBanner": null,
-"gallery": null
-```
+That's the whole editing experience. Nothing else to learn.
 
 ---
 
-## How to change brand color
+## First-time setup (do this once)
 
-In `content.json`, find:
+You'll do this part once, then hand off the live `/admin` URL to whoever's editing the site.
 
-```json
-"primaryColor": "#111111"
+### 1. Create a GitHub repo and push this code
+
+```sh
+gh repo create my-website --public --source=. --remote=origin --push
 ```
 
-Change the hex code. The new color is used everywhere — buttons, accent borders, the offer banner background.
+Or do it through github.com manually: create a new repo, then `git remote add origin <url>` and `git push -u origin main`.
 
-| Color | Hex |
-|-------|-----|
-| Black (default) | `#111111` |
-| Deep blue | `#1E3A8A` |
-| Forest green | `#15803D` |
-| Burgundy | `#7C2D12` |
-| Hot pink | `#DB2777` |
+### 2. Open `public/admin/config.yml` and fix the `repo` line
+
+Change:
+```yaml
+repo: OWNER/REPO
+```
+to your actual repo, e.g.:
+```yaml
+repo: jwilden27/my-website
+```
+
+Commit and push that change.
+
+### 3. Deploy to Netlify (free)
+
+1. Sign up at <https://netlify.com>.
+2. **Add new site** → **Import from Git** → connect your GitHub → pick this repo.
+3. Build command and publish directory are auto-detected (`npm run build` → `dist`).
+4. Click **Deploy**. Site is live in ~60 seconds.
+
+### 4. Enable the GitHub login bridge on Netlify
+
+Sveltia CMS uses Netlify's free OAuth bridge to let people log in with GitHub. To turn it on:
+
+1. In your Netlify site → **Site settings** → **OAuth applications** (or **Identity** → **GitHub provider**) → click **Install provider** for GitHub.
+2. Netlify walks you through clicking "Register OAuth Application" on github.com. Use these values:
+   - **Homepage URL:** your Netlify URL (e.g. `https://my-site.netlify.app`)
+   - **Authorization callback URL:** `https://api.netlify.com/auth/done`
+3. Copy the **Client ID** and **Client Secret** that GitHub gives you, paste them into Netlify's GitHub-provider form, hit Install.
+
+This is a one-time setup. The recipient never has to do it.
+
+### 5. Test the editor
+
+Visit `https://your-site.netlify.app/admin` and log in with GitHub. You should see the editing UI. Make a small text change, hit Save & Publish, and watch the live site update in ~60 seconds.
+
+### 6. Hand off
+
+Send the recipient:
+- The live URL of the site
+- The `/admin` URL
+- A note telling them to log in with their GitHub account (make sure that GitHub user has push access to the repo — invite them as a collaborator on the repo if needed)
 
 ---
 
-## How to swap images
+## What the recipient can edit
 
-1. Drop your image files into `public/images/`.
-2. Make sure the filenames match what's in `content.json`.
+Every text, image, link, and brand color on the site is editable through the form. Specifically:
 
-Default filenames the template uses:
-
-| Where | Filename | Recommended size |
-|-------|----------|------------------|
-| Hero background | `hero.jpg` | 1920 × 1080 |
-| Service cards | `service-1.jpg` … `service-4.jpg` | 800 × 600 |
-| Before/After gallery | `gallery-1.jpg` … `gallery-6.jpg` | 800 × 800 (square) |
-
-If you'd rather use different filenames (e.g. `dental-cleaning.jpg`), just update both the filename in `public/images/` **and** the matching field in `content.json`.
+| Section | What's editable |
+|---------|-----------------|
+| Brand | Business name, logo text, brand color (color picker), tagline |
+| Header | Nav links, "Book Now" button label + URL |
+| Hero | Big headline, subhead, both buttons, background image |
+| Special offer | Eyebrow, headline, body, button — or hide the whole section |
+| Our Approach | 4+ pillar headlines and bodies |
+| Services | Service cards (add/remove/reorder), each with image, name, description, links |
+| Compare table | Your column label, competitor label, rows with ✓/✗ toggles |
+| Testimonials | Add/remove customer quotes with name + location |
+| Intro offers | Up to 3 offer cards — or hide the section |
+| Gallery | Drag-drop image grid — or hide the section |
+| Locations | Single-address mode OR multi-location with regions — or hide the section |
+| Footer | Link columns, social links, contact info, copyright line |
 
 ---
 
-## How to preview locally (optional)
+## Adding a custom domain
 
-Skip this if you don't want to install anything — Netlify will preview for you.
+In Netlify → **Site** → **Domain management** → **Add custom domain**. Netlify shows the DNS records to add at your domain registrar (GoDaddy, Namecheap, etc.). Once DNS propagates, the site is live at your domain with free HTTPS.
 
-If you have Node.js 22+ installed:
+---
+
+## If something goes wrong
+
+**Recipient can't log in to `/admin`**
+- They need a GitHub account, and they need to be a collaborator on the repo (or own it). Invite them: GitHub repo → **Settings** → **Collaborators** → **Add**.
+
+**Recipient saved a change but the site didn't update**
+- Check Netlify → **Deploys**. Each save triggers a deploy. If a deploy failed, the log explains why (usually a broken image upload — retry the save).
+
+**The `/admin` page is blank**
+- The `repo:` line in `public/admin/config.yml` doesn't match the actual repo. Fix and push.
+
+**Need to roll back a bad edit**
+- GitHub shows every save as a commit. Find the last good commit, click "Revert", and Netlify rebuilds the old version.
+
+---
+
+## Local development (optional, for you the setup person)
 
 ```sh
 npm install
 npm run dev
 ```
+Then open <http://localhost:4321>. Hot reload as you tweak source files.
 
-Then open <http://localhost:4321>.
-
----
-
-## How to deploy to Netlify (free)
-
-1. Sign up at <https://netlify.com> (free).
-2. Click **Add new site** → **Import from Git** → connect your GitHub account → pick this repo.
-3. Build settings (Netlify auto-detects, but in case it doesn't):
-   - **Build command:** `npm run build`
-   - **Publish directory:** `dist`
-4. Click **Deploy**. Your site is live in ~60 seconds at a random `*.netlify.app` URL.
-5. **Custom domain:** in Netlify → Site → **Domain management** → **Add custom domain** → follow Netlify's DNS instructions.
-
-After the first deploy, **every time you save changes to `content.json` or upload new images to `public/images/`, Netlify automatically rebuilds and redeploys your site in ~60 seconds.**
-
----
-
-## Common gotchas
-
-- **Site looks broken after editing JSON?** You probably removed a quote mark, comma, or curly brace. Paste your `content.json` into <https://jsonlint.com> and it'll tell you exactly which line broke.
-- **Image not showing?** Filename in `content.json` must match the file in `public/images/` exactly — including capitalization and the extension (`.jpg` vs `.JPG`).
-- **Field disappeared entirely?** You probably set it to `null` instead of an empty string. Use `""` for an empty field, `null` only to hide a whole section.
-- **Brand color didn't change?** Make sure the hex code starts with `#` and has 6 characters after it.
-
----
-
-## Sections in the site
-
-| # | Section | Editable in `content.json` |
-|---|---------|----------------------------|
-| 1 | Header (logo + nav + Book Now) | `header`, `brand` |
-| 2 | Hero (big headline + 2 buttons) | `hero` |
-| 3 | Special offer banner *(optional)* | `offerBanner` |
-| 4 | Our Approach (4 pillars) | `approach` |
-| 5 | Services grid | `services` |
-| 6 | How We Compare table | `compare` |
-| 7 | Testimonials | `testimonials` |
-| 8 | Intro Offers *(optional)* | `introOffers` |
-| 9 | Before/After Gallery *(optional)* | `gallery` |
-| 10 | Locations *(optional)* | `locations` |
-| 11 | Footer | `footer` |
-
----
-
-## Need help?
-
-Open an issue on this repo, or contact whoever sent you this template.
+Note: the `/admin` page only works on a live deploy with GitHub OAuth set up — not on localhost.

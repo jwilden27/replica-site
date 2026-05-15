@@ -1,0 +1,199 @@
+backend:
+  name: github
+  repo: OWNER/REPO          # ← edit this to your-github-username/your-repo-name
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+publish_mode: simple
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: site
+    label: "Website content"
+    files:
+      - name: content
+        label: "All site content"
+        file: "src/data/content.json"
+        format: json
+        fields:
+
+          - label: "Brand"
+            name: brand
+            widget: object
+            fields:
+              - { label: "Brand name (for browser tab)", name: name, widget: string }
+              - { label: "Logo text (shown in header)", name: logoText, widget: string }
+              - { label: "Brand color (hex)", name: primaryColor, widget: color, enableAlpha: false, allowInput: true }
+              - { label: "Tagline (one line about your business)", name: tagline, widget: string }
+
+          - label: "Header navigation"
+            name: header
+            widget: object
+            fields:
+              - label: "Nav links"
+                name: nav
+                widget: list
+                summary: "{{fields.label}}"
+                fields:
+                  - { label: "Label", name: label, widget: string }
+                  - { label: "Link (e.g. #services or https://...)", name: href, widget: string }
+              - { label: "CTA button label", name: ctaLabel, widget: string }
+              - { label: "CTA button URL", name: ctaUrl, widget: string }
+
+          - label: "Hero (top of page)"
+            name: hero
+            widget: object
+            fields:
+              - { label: "Big headline", name: headline, widget: string }
+              - { label: "Subheading", name: subhead, widget: text }
+              - label: "Primary button"
+                name: primaryCta
+                widget: object
+                fields:
+                  - { label: "Button label", name: label, widget: string }
+                  - { label: "Button URL", name: url, widget: string }
+              - label: "Secondary button"
+                name: secondaryCta
+                widget: object
+                fields:
+                  - { label: "Button label", name: label, widget: string }
+                  - { label: "Button URL", name: url, widget: string }
+              - { label: "Background image", name: backgroundImage, widget: image, media_folder: "/public/images", public_folder: "/images" }
+
+          - label: "Special offer banner (optional — leave blank to hide)"
+            name: offerBanner
+            widget: object
+            required: false
+            fields:
+              - { label: "Eyebrow text", name: eyebrow, widget: string, required: false }
+              - { label: "Offer headline", name: headline, widget: string, required: false }
+              - { label: "Offer body / terms", name: body, widget: text, required: false }
+              - { label: "Button label", name: ctaLabel, widget: string, required: false }
+              - { label: "Button URL", name: ctaUrl, widget: string, required: false }
+
+          - label: "Our Approach (4 pillars)"
+            name: approach
+            widget: list
+            min: 1
+            max: 8
+            summary: "{{fields.headline}}"
+            fields:
+              - { label: "Pillar headline", name: headline, widget: string }
+              - { label: "Pillar body", name: body, widget: text }
+
+          - label: "Services"
+            name: services
+            widget: list
+            min: 1
+            max: 8
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Service name", name: name, widget: string }
+              - { label: "Description", name: description, widget: text }
+              - { label: "Image", name: image, widget: image, media_folder: "/public/images", public_folder: "/images" }
+              - { label: "'Learn more' link", name: learnMoreUrl, widget: string }
+              - { label: "'Book now' link", name: bookUrl, widget: string }
+
+          - label: "Compare table (optional)"
+            name: compare
+            widget: object
+            required: false
+            fields:
+              - { label: "Your column label", name: yourLabel, widget: string }
+              - { label: "Competitor column label", name: othersLabel, widget: string }
+              - label: "Comparison rows"
+                name: rows
+                widget: list
+                summary: "{{fields.label}}"
+                fields:
+                  - { label: "Row label", name: label, widget: string }
+                  - { label: "We have this?", name: you, widget: boolean, default: true }
+                  - { label: "Competitors have it?", name: others, widget: boolean, default: false }
+
+          - label: "Testimonials"
+            name: testimonials
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Customer name", name: name, widget: string }
+              - { label: "Location", name: location, widget: string }
+              - { label: "Quote", name: quote, widget: text }
+
+          - label: "Introductory offers (optional)"
+            name: introOffers
+            widget: list
+            required: false
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Offer title", name: title, widget: string }
+              - { label: "Description", name: description, widget: text }
+              - { label: "Button label", name: ctaLabel, widget: string }
+              - { label: "Button URL", name: ctaUrl, widget: string }
+
+          - label: "Before/After gallery (optional)"
+            name: gallery
+            widget: list
+            required: false
+            field: { label: "Image", name: image, widget: image, media_folder: "/public/images", public_folder: "/images" }
+
+          - label: "Locations (optional)"
+            name: locations
+            widget: object
+            required: false
+            fields:
+              - { label: "Mode", name: mode, widget: select, options: ["single", "multi"], default: "single" }
+              - { label: "Section headline", name: headline, widget: string }
+              - label: "Single location (used when mode = single)"
+                name: single
+                widget: object
+                required: false
+                fields:
+                  - { label: "Address", name: address, widget: string }
+                  - { label: "Phone", name: phone, widget: string }
+                  - { label: "Google Maps URL", name: mapUrl, widget: string }
+              - label: "Multiple locations grouped by region (used when mode = multi)"
+                name: multi
+                widget: list
+                required: false
+                summary: "{{fields.region}}"
+                fields:
+                  - { label: "Region name", name: region, widget: string }
+                  - label: "Locations in this region"
+                    name: locations
+                    widget: list
+                    fields:
+                      - { label: "Location name", name: name, widget: string }
+                      - { label: "Link URL", name: href, widget: string }
+
+          - label: "Footer"
+            name: footer
+            widget: object
+            fields:
+              - label: "Footer link columns"
+                name: columns
+                widget: list
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Column title", name: title, widget: string }
+                  - label: "Links"
+                    name: links
+                    widget: list
+                    fields:
+                      - { label: "Label", name: label, widget: string }
+                      - { label: "URL", name: href, widget: string }
+              - label: "Social links"
+                name: social
+                widget: list
+                summary: "{{fields.platform}}"
+                fields:
+                  - { label: "Platform name", name: platform, widget: string }
+                  - { label: "URL", name: url, widget: string }
+              - label: "Contact"
+                name: contact
+                widget: object
+                fields:
+                  - { label: "Email", name: email, widget: string }
+                  - { label: "Phone", name: phone, widget: string }
+              - { label: "Copyright line", name: copyright, widget: string }
