@@ -11,7 +11,9 @@ const pageTitle = title ?? content.brand.name;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageTitle}</title>
     <meta name="description" content={content.brand.tagline} />
-    <style set:html={`:root { --brand: ${content.brand.primaryColor}; }`}></style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" />
   </head>
   <body>
     <slot />

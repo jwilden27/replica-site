@@ -3,27 +3,42 @@ import { content } from "../data/types";
 const compare = content.compare;
 ---
 {compare && (
-  <section class="py-20 md:py-28">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tight text-center mb-16">How We Compare</h2>
-      <table class="w-full border-collapse">
-        <thead>
-          <tr class="border-b-2 border-neutral-900">
-            <th class="text-left py-4"></th>
-            <th class="py-4 text-sm uppercase tracking-wider brand-text">{compare.yourLabel}</th>
-            <th class="py-4 text-sm uppercase tracking-wider text-neutral-400">{compare.othersLabel}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {compare.rows.map((row) => (
-            <tr class="border-b border-neutral-200">
-              <td class="py-4 text-sm">{row.label}</td>
-              <td class="py-4 text-center brand-text font-bold">{row.you ? "✓" : "—"}</td>
-              <td class="py-4 text-center text-neutral-400">{row.others ? "✓" : "—"}</td>
-            </tr>
+  <section class="shell-bg py-24 md:py-32">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="eyebrow text-xs mb-4 text-center" style="color: var(--cream);">Compare</div>
+      <h2 class="display text-4xl md:text-6xl text-center mb-20" style="color: var(--paper);">How we compare.</h2>
+
+      <div class="relative">
+        <div class="absolute left-1/2 -translate-x-1/2 -top-4 z-10 cream-bg rounded-t-3xl px-12 py-6 min-w-[180px] text-center">
+          <span class="display text-lg" style="color: var(--shell);">{compare.yourLabel}</span>
+        </div>
+
+        <div class="grid grid-cols-[1fr_auto_auto] md:grid-cols-[2fr_1fr_1fr] gap-x-6 md:gap-x-12 pt-20">
+          <div></div>
+          <div class="text-center pb-6"></div>
+          <div class="text-center eyebrow text-xs pb-6" style="color: var(--cream); opacity: 0.55;">{compare.othersLabel}</div>
+
+          {compare.rows.map((row, i) => (
+            <>
+              <div class={`py-6 eyebrow text-xs md:text-sm ${i < compare.rows.length - 1 ? 'border-b' : ''}`} style="color: var(--paper); border-color: rgba(217, 199, 167, 0.18);">{row.label}</div>
+              <div class={`py-6 text-center ${i < compare.rows.length - 1 ? 'border-b' : ''}`} style="border-color: rgba(217, 199, 167, 0.18);">
+                {row.you ? (
+                  <span class="inline-block w-7 h-7 leading-7 text-center" style="color: var(--cream);">✓</span>
+                ) : (
+                  <span class="inline-block w-7 h-7 leading-7 text-center" style="color: var(--cream); opacity: 0.3;">✕</span>
+                )}
+              </div>
+              <div class={`py-6 text-center ${i < compare.rows.length - 1 ? 'border-b' : ''}`} style="border-color: rgba(217, 199, 167, 0.18);">
+                {row.others ? (
+                  <span class="inline-block w-7 h-7 leading-7 text-center" style="color: var(--cream); opacity: 0.5;">✓</span>
+                ) : (
+                  <span class="inline-block w-7 h-7 leading-7 text-center" style="color: var(--cream); opacity: 0.3;">✕</span>
+                )}
+              </div>
+            </>
           ))}
-        </tbody>
-      </table>
+        </div>
+      </div>
     </div>
   </section>
 )}

@@ -3,14 +3,15 @@ import { content } from "../data/types";
 const { hero } = content;
 const bgUrl = `/images/${hero.backgroundImage}`;
 ---
-<section class="relative overflow-hidden">
-  <div class="absolute inset-0 bg-cover bg-center" style={`background-image: url('${bgUrl}'); filter: brightness(0.55);`}></div>
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-32 md:py-48 text-white">
-    <h1 class="text-4xl md:text-7xl font-black tracking-tight uppercase max-w-3xl">{hero.headline}</h1>
-    <p class="mt-6 text-lg md:text-xl max-w-xl">{hero.subhead}</p>
-    <div class="mt-10 flex flex-wrap gap-4">
-      <a href={hero.primaryCta.url} class="brand-btn px-6 py-3 uppercase tracking-wider text-sm font-semibold rounded">{hero.primaryCta.label}</a>
-      <a href={hero.secondaryCta.url} class="bg-white text-black px-6 py-3 uppercase tracking-wider text-sm font-semibold rounded hover:opacity-90">{hero.secondaryCta.label}</a>
+<section class="relative overflow-hidden shell-bg">
+  <div class="absolute inset-0 bg-cover bg-center opacity-50" style={`background-image: url('${bgUrl}');`}></div>
+  <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(61,43,31,0.35) 0%, rgba(61,43,31,0.85) 100%);"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-32 md:py-56">
+    <h1 class="display text-5xl md:text-8xl max-w-4xl" style="color: var(--paper);">{hero.headline}</h1>
+    <p class="mt-8 text-lg md:text-xl max-w-xl font-medium" style="color: var(--cream-2);">{hero.subhead}</p>
+    <div class="mt-12 flex flex-wrap gap-4">
+      <a href={hero.primaryCta.url} class="cream-btn px-7 py-3.5 eyebrow text-xs rounded-full transition-colors">{hero.primaryCta.label}</a>
+      <a href={hero.secondaryCta.url} class="px-7 py-3.5 eyebrow text-xs rounded-full transition-colors border-2" style="border-color: var(--cream); color: var(--cream);">{hero.secondaryCta.label}</a>
     </div>
   </div>
 </section>

@@ -2,19 +2,20 @@
 import { content } from "../data/types";
 const { services } = content;
 ---
-<section id="services" class="py-20 md:py-28 bg-neutral-50">
+<section id="services" class="py-24 md:py-32 cream-2-bg">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tight text-center mb-16">Our Services</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="eyebrow text-xs mb-4 text-center" style="color: var(--shell);">Our Services</div>
+    <h2 class="display text-4xl md:text-6xl text-center mb-20" style="color: var(--shell);">What we do.</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {services.map((s) => (
-        <article class="bg-white rounded overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
-          <div class="aspect-[4/3] bg-neutral-200 bg-cover bg-center" style={`background-image: url('/images/${s.image}');`}></div>
+        <article class="paper-bg rounded-2xl overflow-hidden group cursor-pointer">
+          <div class="aspect-[4/5] bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style={`background-image: url('/images/${s.image}');`}></div>
           <div class="p-6">
-            <h3 class="text-lg font-bold uppercase tracking-wider">{s.name}</h3>
-            <p class="mt-2 text-sm text-neutral-600">{s.description}</p>
-            <div class="mt-4 flex gap-4 text-sm">
-              <a href={s.learnMoreUrl} class="brand-text font-semibold hover:underline">Learn more →</a>
-              <a href={s.bookUrl} class="font-semibold hover:underline">Book now</a>
+            <h3 class="display text-xl" style="color: var(--shell);">{s.name}</h3>
+            <p class="mt-3 text-sm leading-relaxed" style="color: rgba(26, 15, 8, 0.7);">{s.description}</p>
+            <div class="mt-5 flex gap-5 text-xs eyebrow">
+              <a href={s.learnMoreUrl} class="hover:opacity-60 transition-opacity" style="color: var(--shell);">Learn more →</a>
+              <a href={s.bookUrl} class="hover:opacity-60 transition-opacity" style="color: var(--shell); opacity: 0.55;">Book</a>
             </div>
           </div>
         </article>
