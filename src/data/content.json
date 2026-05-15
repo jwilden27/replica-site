@@ -7,9 +7,10 @@
   },
   "header": {
     "nav": [
-      { "label": "Services", "href": "#services" },
-      { "label": "About", "href": "#approach" },
-      { "label": "Book", "href": "#book" }
+      { "label": "Treatments", "href": "#services" },
+      { "label": "Pricing", "href": "#approach" },
+      { "label": "Locations", "href": "#locations" },
+      { "label": "About Us", "href": "#approach" }
     ],
     "ctaLabel": "Book Now",
     "ctaUrl": "#book"
@@ -21,7 +22,13 @@
     "secondaryCta": { "label": "Book a Consultation", "url": "#book" },
     "backgroundImage": "hero.jpg"
   },
-  "offerBanner": null,
+  "offerBanner": {
+    "eyebrow": "",
+    "headline": "NOW BOOKING. OPENING SOON.",
+    "body": "",
+    "ctaLabel": "Join the waitlist",
+    "ctaUrl": "#book"
+  },
   "approach": [
     { "headline": "FDA-CLEARED TECH", "body": "We use clinically established laser and skin devices, run by trained operators who understand the science behind them." },
     { "headline": "TRAINED SPECIALISTS", "body": "Every treatment is performed by a certified technician. No upselling, no rushing." },
