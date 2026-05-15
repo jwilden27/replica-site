@@ -1,0 +1,86 @@
+{
+  "brand": {
+    "name": "YOUR BRAND",
+    "logoText": "BRAND",
+    "primaryColor": "#111111",
+    "tagline": "A clean tagline that says what your business does."
+  },
+  "header": {
+    "nav": [
+      { "label": "Services", "href": "#services" },
+      { "label": "About", "href": "#approach" },
+      { "label": "Locations", "href": "#locations" },
+      { "label": "Reviews", "href": "#testimonials" }
+    ],
+    "ctaLabel": "Book Now",
+    "ctaUrl": "#book"
+  },
+  "hero": {
+    "headline": "CONFIDENCE STARTS HERE",
+    "subhead": "Replace this with the one-line promise your business makes to its customers.",
+    "primaryCta": { "label": "Explore Services", "url": "#services" },
+    "secondaryCta": { "label": "Book Appointment", "url": "#book" },
+    "backgroundImage": "hero.jpg"
+  },
+  "offerBanner": {
+    "eyebrow": "SPECIAL OFFER",
+    "headline": "BUY 6, GET 2 FREE",
+    "body": "Terms and conditions apply. Edit this text in content.json. Set offerBanner to null to hide this whole section.",
+    "ctaLabel": "Book Now",
+    "ctaUrl": "#book"
+  },
+  "approach": [
+    { "headline": "CLINICALLY-PROVEN", "body": "Replace with a short paragraph about pillar one of your approach." },
+    { "headline": "EXPERT TEAM", "body": "Replace with a short paragraph about pillar two of your approach." },
+    { "headline": "FOR EVERYONE", "body": "Replace with a short paragraph about pillar three of your approach." },
+    { "headline": "TRANSPARENT PRICING", "body": "Replace with a short paragraph about pillar four of your approach." }
+  ],
+  "services": [
+    { "name": "Service One", "description": "One-line description of what this service is and who it's for.", "image": "service-1.jpg", "learnMoreUrl": "#", "bookUrl": "#book" },
+    { "name": "Service Two", "description": "One-line description of what this service is and who it's for.", "image": "service-2.jpg", "learnMoreUrl": "#", "bookUrl": "#book" },
+    { "name": "Service Three", "description": "One-line description of what this service is and who it's for.", "image": "service-3.jpg", "learnMoreUrl": "#", "bookUrl": "#book" },
+    { "name": "Service Four", "description": "One-line description of what this service is and who it's for.", "image": "service-4.jpg", "learnMoreUrl": "#", "bookUrl": "#book" }
+  ],
+  "compare": {
+    "yourLabel": "YOUR BRAND",
+    "othersLabel": "Others",
+    "rows": [
+      { "label": "First treatment free", "you": true, "others": false },
+      { "label": "Prices available online", "you": true, "others": false },
+      { "label": "Memberships & packages", "you": true, "others": false },
+      { "label": "Transparent pricing", "you": true, "others": false }
+    ]
+  },
+  "testimonials": [
+    { "name": "Customer One", "location": "City, ST", "quote": "Replace with a real testimonial quote from a happy customer." },
+    { "name": "Customer Two", "location": "City, ST", "quote": "Replace with a real testimonial quote from a happy customer." },
+    { "name": "Customer Three", "location": "City, ST", "quote": "Replace with a real testimonial quote from a happy customer." },
+    { "name": "Customer Four", "location": "City, ST", "quote": "Replace with a real testimonial quote from a happy customer." },
+    { "name": "Customer Five", "location": "City, ST", "quote": "Replace with a real testimonial quote from a happy customer." },
+    { "name": "Customer Six", "location": "City, ST", "quote": "Replace with a real testimonial quote from a happy customer." }
+  ],
+  "introOffers": [
+    { "title": "Free First Session", "description": "Edit this offer description in content.json.", "ctaLabel": "Book Now", "ctaUrl": "#book" },
+    { "title": "Loyalty Discount", "description": "Edit this offer description in content.json.", "ctaLabel": "Learn More", "ctaUrl": "#" },
+    { "title": "Refer a Friend", "description": "Edit this offer description in content.json.", "ctaLabel": "Get Started", "ctaUrl": "#" }
+  ],
+  "gallery": ["gallery-1.jpg", "gallery-2.jpg", "gallery-3.jpg", "gallery-4.jpg", "gallery-5.jpg", "gallery-6.jpg"],
+  "locations": {
+    "mode": "single",
+    "headline": "VISIT US",
+    "single": { "address": "123 Main Street, Your City, ST 00000", "phone": "(555) 555-5555", "mapUrl": "https://maps.google.com" },
+    "multi": null
+  },
+  "footer": {
+    "columns": [
+      { "title": "Company", "links": [ { "label": "About", "href": "#approach" }, { "label": "Contact", "href": "#book" } ] },
+      { "title": "Legal", "links": [ { "label": "Terms", "href": "#" }, { "label": "Privacy", "href": "#" } ] }
+    ],
+    "social": [
+      { "platform": "Instagram", "url": "https://instagram.com" },
+      { "platform": "Facebook", "url": "https://facebook.com" }
+    ],
+    "contact": { "email": "hello@yourbrand.com", "phone": "(555) 555-5555" },
+    "copyright": "© 2026 Your Brand. All rights reserved."
+  }
+}

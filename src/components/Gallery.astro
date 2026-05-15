@@ -1,0 +1,16 @@
+---
+import { content } from "../data/types";
+const gallery = content.gallery;
+---
+{gallery && gallery.length > 0 && (
+  <section class="py-20 md:py-28 bg-neutral-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tight text-center mb-16">Before & After</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+        {gallery.map((img) => (
+          <div class="aspect-square bg-neutral-200 bg-cover bg-center rounded" style={`background-image: url('/images/${img}');`}></div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

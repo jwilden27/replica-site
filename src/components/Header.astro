@@ -1,0 +1,17 @@
+---
+import { content } from "../data/types";
+const { header, brand } = content;
+---
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-neutral-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <a href="/" class="font-black tracking-widest text-xl brand-text">{brand.logoText}</a>
+    <nav class="hidden md:flex items-center gap-8">
+      {header.nav.map((item) => (
+        <a href={item.href} class="text-sm uppercase tracking-wider hover:opacity-70">{item.label}</a>
+      ))}
+    </nav>
+    <a href={header.ctaUrl} class="brand-btn px-4 py-2 text-sm uppercase tracking-wider font-semibold rounded">
+      {header.ctaLabel}
+    </a>
+  </div>
+</header>

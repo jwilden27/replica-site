@@ -1,0 +1,24 @@
+---
+import { content } from "../data/types";
+const { services } = content;
+---
+<section id="services" class="py-20 md:py-28 bg-neutral-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tight text-center mb-16">Our Services</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {services.map((s) => (
+        <article class="bg-white rounded overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+          <div class="aspect-[4/3] bg-neutral-200 bg-cover bg-center" style={`background-image: url('/images/${s.image}');`}></div>
+          <div class="p-6">
+            <h3 class="text-lg font-bold uppercase tracking-wider">{s.name}</h3>
+            <p class="mt-2 text-sm text-neutral-600">{s.description}</p>
+            <div class="mt-4 flex gap-4 text-sm">
+              <a href={s.learnMoreUrl} class="brand-text font-semibold hover:underline">Learn more →</a>
+              <a href={s.bookUrl} class="font-semibold hover:underline">Book now</a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

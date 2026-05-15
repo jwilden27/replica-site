@@ -1,0 +1,29 @@
+---
+import { content } from "../data/types";
+const compare = content.compare;
+---
+{compare && (
+  <section class="py-20 md:py-28">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tight text-center mb-16">How We Compare</h2>
+      <table class="w-full border-collapse">
+        <thead>
+          <tr class="border-b-2 border-neutral-900">
+            <th class="text-left py-4"></th>
+            <th class="py-4 text-sm uppercase tracking-wider brand-text">{compare.yourLabel}</th>
+            <th class="py-4 text-sm uppercase tracking-wider text-neutral-400">{compare.othersLabel}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {compare.rows.map((row) => (
+            <tr class="border-b border-neutral-200">
+              <td class="py-4 text-sm">{row.label}</td>
+              <td class="py-4 text-center brand-text font-bold">{row.you ? "✓" : "—"}</td>
+              <td class="py-4 text-center text-neutral-400">{row.others ? "✓" : "—"}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+)}
