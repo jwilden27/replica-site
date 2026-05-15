@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: OWNER/REPO          # ← edit this to your-github-username/your-repo-name
+  repo: jwilden27/replica-site
   branch: main
   base_url: https://api.netlify.com
   auth_endpoint: auth
