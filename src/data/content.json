@@ -1,86 +1,88 @@
 {
   "brand": {
-    "name": "YOUR BRAND",
-    "logoText": "BRAND",
-    "primaryColor": "#111111",
-    "tagline": "A clean tagline that says what your business does."
+    "name": "MILKOS",
+    "logoText": "MILKOS",
+    "primaryColor": "#0F0F0F",
+    "tagline": "Laser and skin aesthetics."
   },
   "header": {
     "nav": [
       { "label": "Services", "href": "#services" },
       { "label": "About", "href": "#approach" },
-      { "label": "Locations", "href": "#locations" },
-      { "label": "Reviews", "href": "#testimonials" }
+      { "label": "Book", "href": "#book" }
     ],
     "ctaLabel": "Book Now",
     "ctaUrl": "#book"
   },
   "hero": {
-    "headline": "CONFIDENCE STARTS HERE",
-    "subhead": "Replace this with the one-line promise your business makes to its customers.",
+    "headline": "FEEL GOOD IN YOUR SKIN",
+    "subhead": "Modern laser and skin treatments, delivered by a team that takes your time and your comfort seriously.",
     "primaryCta": { "label": "Explore Services", "url": "#services" },
-    "secondaryCta": { "label": "Book Appointment", "url": "#book" },
+    "secondaryCta": { "label": "Book a Consultation", "url": "#book" },
     "backgroundImage": "hero.jpg"
   },
-  "offerBanner": {
-    "eyebrow": "SPECIAL OFFER",
-    "headline": "BUY 6, GET 2 FREE",
-    "body": "Terms and conditions apply. Edit this text in content.json. Set offerBanner to null to hide this whole section.",
-    "ctaLabel": "Book Now",
-    "ctaUrl": "#book"
-  },
+  "offerBanner": null,
   "approach": [
-    { "headline": "CLINICALLY-PROVEN", "body": "Replace with a short paragraph about pillar one of your approach." },
-    { "headline": "EXPERT TEAM", "body": "Replace with a short paragraph about pillar two of your approach." },
-    { "headline": "FOR EVERYONE", "body": "Replace with a short paragraph about pillar three of your approach." },
-    { "headline": "TRANSPARENT PRICING", "body": "Replace with a short paragraph about pillar four of your approach." }
+    { "headline": "FDA-CLEARED TECH", "body": "We use clinically established laser and skin devices, run by trained operators who understand the science behind them." },
+    { "headline": "TRAINED SPECIALISTS", "body": "Every treatment is performed by a certified technician. No upselling, no rushing." },
+    { "headline": "EVERY SKIN TONE", "body": "Our protocols are tuned for the full range of skin types, including darker tones that legacy lasers struggle with." },
+    { "headline": "CLEAR PRICING", "body": "Per-session and package prices are listed up front. You'll never get surprised at checkout." }
   ],
   "services": [
-    { "name": "Service One", "description": "One-line description of what this service is and who it's for.", "image": "service-1.jpg", "learnMoreUrl": "#", "bookUrl": "#book" },
-    { "name": "Service Two", "description": "One-line description of what this service is and who it's for.", "image": "service-2.jpg", "learnMoreUrl": "#", "bookUrl": "#book" },
-    { "name": "Service Three", "description": "One-line description of what this service is and who it's for.", "image": "service-3.jpg", "learnMoreUrl": "#", "bookUrl": "#book" },
-    { "name": "Service Four", "description": "One-line description of what this service is and who it's for.", "image": "service-4.jpg", "learnMoreUrl": "#", "bookUrl": "#book" }
+    {
+      "name": "Laser Hair Removal",
+      "description": "Targeted, lasting reduction of unwanted hair across most body areas. Works on a wide range of skin tones.",
+      "image": "service-1.jpg",
+      "learnMoreUrl": "#",
+      "bookUrl": "#book"
+    },
+    {
+      "name": "Laser Facials",
+      "description": "Non-invasive facial treatments that brighten skin, soften texture, and reduce visible redness, with no downtime.",
+      "image": "service-2.jpg",
+      "learnMoreUrl": "#",
+      "bookUrl": "#book"
+    },
+    {
+      "name": "Microneedling",
+      "description": "Tiny controlled micro-channels stimulate the skin's own collagen response. Helpful for scars, pores, and skin tone.",
+      "image": "service-3.jpg",
+      "learnMoreUrl": "#",
+      "bookUrl": "#book"
+    },
+    {
+      "name": "Injectables",
+      "description": "Conservative, natural-looking neuromodulator and dermal filler treatments performed by licensed providers.",
+      "image": "service-4.jpg",
+      "learnMoreUrl": "#",
+      "bookUrl": "#book"
+    }
   ],
   "compare": {
-    "yourLabel": "YOUR BRAND",
+    "yourLabel": "MILKOS",
     "othersLabel": "Others",
     "rows": [
-      { "label": "First treatment free", "you": true, "others": false },
-      { "label": "Prices available online", "you": true, "others": false },
-      { "label": "Memberships & packages", "you": true, "others": false },
-      { "label": "Transparent pricing", "you": true, "others": false }
+      { "label": "Free first consultation", "you": true, "others": false },
+      { "label": "Prices listed online", "you": true, "others": false },
+      { "label": "Packages & memberships", "you": true, "others": false },
+      { "label": "Single-session pricing", "you": true, "others": false },
+      { "label": "Tuned for all skin tones", "you": true, "others": false }
     ]
   },
-  "testimonials": [
-    { "name": "Customer One", "location": "City, ST", "quote": "Replace with a real testimonial quote from a happy customer." },
-    { "name": "Customer Two", "location": "City, ST", "quote": "Replace with a real testimonial quote from a happy customer." },
-    { "name": "Customer Three", "location": "City, ST", "quote": "Replace with a real testimonial quote from a happy customer." },
-    { "name": "Customer Four", "location": "City, ST", "quote": "Replace with a real testimonial quote from a happy customer." },
-    { "name": "Customer Five", "location": "City, ST", "quote": "Replace with a real testimonial quote from a happy customer." },
-    { "name": "Customer Six", "location": "City, ST", "quote": "Replace with a real testimonial quote from a happy customer." }
-  ],
-  "introOffers": [
-    { "title": "Free First Session", "description": "Edit this offer description in content.json.", "ctaLabel": "Book Now", "ctaUrl": "#book" },
-    { "title": "Loyalty Discount", "description": "Edit this offer description in content.json.", "ctaLabel": "Learn More", "ctaUrl": "#" },
-    { "title": "Refer a Friend", "description": "Edit this offer description in content.json.", "ctaLabel": "Get Started", "ctaUrl": "#" }
-  ],
-  "gallery": ["gallery-1.jpg", "gallery-2.jpg", "gallery-3.jpg", "gallery-4.jpg", "gallery-5.jpg", "gallery-6.jpg"],
-  "locations": {
-    "mode": "single",
-    "headline": "VISIT US",
-    "single": { "address": "123 Main Street, Your City, ST 00000", "phone": "(555) 555-5555", "mapUrl": "https://maps.google.com" },
-    "multi": null
-  },
+  "testimonials": [],
+  "introOffers": null,
+  "gallery": null,
+  "locations": null,
   "footer": {
     "columns": [
-      { "title": "Company", "links": [ { "label": "About", "href": "#approach" }, { "label": "Contact", "href": "#book" } ] },
+      { "title": "Company", "links": [ { "label": "About", "href": "#approach" }, { "label": "Services", "href": "#services" }, { "label": "Contact", "href": "#book" } ] },
       { "title": "Legal", "links": [ { "label": "Terms", "href": "#" }, { "label": "Privacy", "href": "#" } ] }
     ],
     "social": [
       { "platform": "Instagram", "url": "https://instagram.com" },
-      { "platform": "Facebook", "url": "https://facebook.com" }
+      { "platform": "TikTok", "url": "https://tiktok.com" }
     ],
-    "contact": { "email": "hello@yourbrand.com", "phone": "(555) 555-5555" },
-    "copyright": "© 2026 Your Brand. All rights reserved."
+    "contact": { "email": "hello@milkos.com", "phone": "(555) 555-5555" },
+    "copyright": "© 2026 Milkos. All rights reserved."
   }
 }
